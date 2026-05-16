@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="
+      width=device-width,
+      initial-scale=1.0,
+      maximum-scale=1.0,
+      user-scalable=no
+    "
+  >
+
+  <title>
+    Daily Planner
+  </title>
+
+  <!-- FONTS -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="
+https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap
+"
+    rel="stylesheet"
+  >
+
+  <!-- CSS -->
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+  <link
+  rel="manifest"
+  href="manifest.json"
+/>
+
+  <!-- DAYJS -->
+
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+
+</head>
+
+<body>
+
+  <!-- APP -->
+
+  <div class="app">
+
+    <!-- ===================================================== -->
+    <!-- HEADER -->
+    <!-- ===================================================== -->
+
+    <header class="header">
+
+      <!-- TOP AREA -->
+
+      <div class="header-top">
+
+        <!-- LEFT -->
+
+        <div class="header-content">
+
+          <div class="title-row">
+
+            <h1>
+              Daily Planner
+            </h1>
+
+            <span class="leaf-icon">
+              🌿
+            </span>
+
+          </div>
+
+          <p class="hero-subtitle">
+
+            Plan your day.
+            Stay focused.
+            Achieve more.
+
+          </p>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <button id="calendarBtn">
+
+          📅
+
+        </button>
+
+        <input
+          type="date"
+          id="selectedDate"
+        >
+
+      </div>
+
+      <!-- WEEK STRIP -->
+
+      <div
+        id="weekStrip"
+        class="week-strip"
+      ></div>
+
+    </header>
+
+    <!-- ===================================================== -->
+    <!-- MAIN CONTENT -->
+    <!-- ===================================================== -->
+
+    <main class="main-content">
+
+      <!-- ====================================== -->
+      <!-- DAILY SCHEDULE -->
+      <!-- ====================================== -->
+
+      <section
+        class="
+          content-card
+          schedule-card
+        "
+      >
+
+        <!-- CARD HEADER -->
+
+        <button
+          class="card-header"
+        >
+
+          <!-- LEFT -->
+
+          <div class="card-header-left">
+
+            <div class="card-title-row">
+
+              <span class="card-icon">
+                📅
+              </span>
+
+              <h2>
+                Daily Schedule
+              </h2>
+<!-- 
+              <span class="card-accent">
+                🌿
+              </span> -->
+
+            </div>
+
+            <p class="card-subtitle">
+
+              Plan your tasks and
+              manage your time
+
+            </p>
+
+          </div>
+
+          <!-- RIGHT -->
+
+          <span class="card-toggle">
+
+            +
+
+          </span>
+
+        </button>
+
+        <!-- CARD BODY -->
+
+        <div class="card-body">
+
+          <div class="card-scroll-area">
+
+            <div
+              id="scheduleContainer"
+            ></div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ====================================== -->
+      <!-- HABITS -->
+      <!-- ====================================== -->
+
+      <section
+        class="
+          content-card
+          habits-card
+        "
+      >
+
+        <!-- CARD HEADER -->
+
+        <button
+          class="card-header"
+        >
+          <!-- LEFT -->
+
+          <div class="card-header-left">
+
+            <div class="card-title-row">
+
+              <span class="card-icon">
+                ✨
+              </span>
+
+              <h2>
+                Habit Checklist
+              </h2>
+
+            </div>
+
+            <p class="card-subtitle">
+
+              Track routines and
+              build consistency
+
+            </p>
+
+          </div>
+
+          <!-- RIGHT -->
+
+          <span class="card-toggle">
+
+            +
+
+          </span>
+
+        </button>
+
+        <!-- CARD BODY -->
+
+        <div class="card-body">
+
+          <div class="card-scroll-area">
+
+            <div
+              id="habitContainer"
+            ></div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ====================================== -->
+      <!-- NOTES -->
+      <!-- ====================================== -->
+
+      <section
+        class="
+          content-card
+          notes-card
+        "
+      >
+
+        <!-- CARD HEADER -->
+
+        <button
+          class="card-header"
+        >
+
+          <!-- LEFT -->
+
+          <div class="card-header-left">
+
+            <div class="card-title-row">
+
+              <span class="card-icon">
+                📝
+              </span>
+
+              <h2>
+                Notes
+              </h2>
+
+            </div>
+
+            <p class="card-subtitle">
+
+              Write thoughts and
+              capture ideas
+
+            </p>
+
+          </div>
+
+          <!-- RIGHT -->
+
+          <span class="card-toggle">
+
+            +
+
+          </span>
+
+        </button>
+
+        <!-- CARD BODY -->
+
+        <div class="card-body">
+
+          <div class="card-scroll-area">
+
+            <textarea
+              id="notesInput"
+              placeholder="
+Write notes...
+              "
+            ></textarea>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- ===================================================== -->
+    <!-- BOTTOM NAV -->
+    <!-- ===================================================== -->
+
+    <nav class="bottom-nav">
+
+      <button
+        class="
+          nav-item
+          active
+        "
+      >
+    
+      <span class="nav-icon">
+
+        <img
+          src="images/planner-icon.png"
+          alt="Planner"
+        >
+      
+      </span>
+    
+        <span class="nav-text">
+          Planner
+        </span>
+    
+      </button>
+    
+      <button
+        class="nav-item"
+    
+        onclick="
+          window.location.href='habits.html'
+        "
+      >
+    
+        <span class="nav-icon">
+          🌿
+        </span>
+    
+        <span class="nav-text">
+          Habits
+        </span>
+    
+      </button>
+    
+      <button
+        class="nav-item"
+    
+        onclick="
+          window.location.href='upcoming.html'
+        "
+      >
+    
+        <span class="nav-icon">
+          🕒
+        </span>
+    
+        <span class="nav-text">
+          Upcoming
+        </span>
+    
+      </button>
+    
+      <button
+        class="nav-item"
+    
+        onclick="
+          window.location.href='search.html'
+        "
+      >
+    
+        <span class="nav-icon">
+          🔍
+        </span>
+    
+        <span class="nav-text">
+          Search
+        </span>
+    
+      </button>
+
+      <button
+        class="nav-item"
+    
+        onclick="
+          window.location.href='settings.html'
+        "
+      >
+    
+        <span class="nav-icon">
+          ⚙️
+        </span>
+    
+        <span class="nav-text">
+          Settings
+        </span>
+    
+      </button>
+    
+    </nav>
+
+  </div>
+
+  <!-- JS -->
+
+  <script src="app.js"></script>
+
+</body>
+
+</html>

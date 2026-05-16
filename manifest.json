@@ -1,0 +1,48 @@
+{
+  "name": "E'La ❤️",
+
+  "short_name": "E'La",
+
+  "description":
+    "Plan your day. Stay focused. Achieve more.",
+
+  "start_url": "/index.html",
+
+  "display": "standalone",
+
+  "background_color": "#fafaf6",
+
+  "theme_color": "#5f7f4d",
+
+  "orientation": "portrait",
+
+  "icons": [
+
+    {
+      "src": "/images/healthy-192.png",
+
+      "sizes": "192x192",
+
+      "type": "image/png"
+    },
+
+    {
+      "src": "/images/healthy.png",
+
+      "sizes": "512x512",
+
+      "type": "image/png"
+    },
+
+    {
+      "src": "/images/healthy.png",
+
+      "sizes": "512x512",
+
+      "type": "image/png",
+
+      "purpose": "maskable"
+    }
+
+  ]
+}

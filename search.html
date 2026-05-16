@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  />
+
+  <title>Search</title>
+
+  <link rel="stylesheet" href="search.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="app">
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+      <h1>
+        Search
+      </h1>
+
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search tasks, notes..."
+      >
+
+    </header>
+
+    <!-- RESULTS -->
+
+    <main
+      id="resultsContainer"
+      class="results-container"
+    >
+
+      <div class="empty-state">
+        Start searching...
+      </div>
+
+    </main>
+
+    <!-- NAV -->
+
+    <nav class="bottom-nav">
+
+      <button
+        class="
+          nav-item
+        "
+        onclick="
+          window.location.href='index.html'
+        "
+      >
+    
+      <span class="nav-icon">
+
+        <img
+          src="images/planner-icon.png"
+          alt="Planner"
+        >
+      
+      </span>
+    
+        <span class="nav-text">
+          Planner
+        </span>
+    
+      </button>
+    
+      <button
+        class="nav-item"
+    
+        onclick="
+          window.location.href='habits.html'
+        "
+      >
+    
+        <span class="nav-icon">
+          🌿
+        </span>
+    
+        <span class="nav-text">
+          Habits
+        </span>
+    
+      </button>
+    
+      <button
+        class="nav-item"
+    
+        onclick="
+          window.location.href='upcoming.html'
+        "
+      >
+    
+        <span class="nav-icon">
+          🕒
+        </span>
+    
+        <span class="nav-text">
+          Upcoming
+        </span>
+    
+      </button>
+    
+      <button
+        class="nav-item
+        active"
+      >
+    
+        <span class="nav-icon">
+          🔍
+        </span>
+    
+        <span class="nav-text">
+          Search
+        </span>
+    
+      </button>
+      
+      <button
+        class="nav-item"
+    
+        onclick="
+          window.location.href='settings.html'
+        "
+      >
+    
+        <span class="nav-icon">
+          ⚙️
+        </span>
+    
+        <span class="nav-text">
+          Settings
+        </span>
+    
+      </button>
+    
+    </nav>
+
+  </div>
+
+  <script src="search.js"></script>
+
+</body>
+
+</html>

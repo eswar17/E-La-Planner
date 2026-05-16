@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  />
+
+  <title>Upcoming</title>
+
+  <link rel="stylesheet" href="upcoming.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="app">
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+      <h1>
+        Upcoming
+      </h1>
+
+    </header>
+
+    <!-- CONTENT -->
+
+    <main class="main-content">
+      <!-- PREPARATION -->
+
+<section class="section-card">
+
+  <div class="section-title">
+
+    🌙 Tomorrow Preparation
+
+  </div>
+
+  <div
+    id="prepContainer"
+    class="tasks-list"
+  >
+
+  </div>
+
+</section>
+
+      <!-- TOMORROW -->
+
+      <section class="card">
+
+        <div class="section-title">
+          Tomorrow
+        </div>
+
+        <div id="tomorrowContainer"></div>
+
+      </section>
+
+      <!-- IMPORTANT -->
+
+      <section class="card">
+
+        <div class="section-title important-title">
+          ★ Important Upcoming
+        </div>
+
+        <div id="importantContainer"></div>
+
+      </section>
+
+      <!-- UPCOMING -->
+
+      <section class="card">
+
+        <div class="section-title">
+          Upcoming Tasks
+        </div>
+
+        <div id="upcomingContainer"></div>
+
+      </section>
+
+      <!-- MISSED -->
+
+      <section class="card">
+
+        <div class="section-title missed-title">
+          Missed Tasks
+        </div>
+
+        <div id="missedContainer"></div>
+
+      </section>
+
+    </main>
+
+    <!-- NAV -->
+
+    <nav class="bottom-nav">
+
+      <button
+        class="
+          nav-item
+        "
+        onclick="
+          window.location.href='index.html'
+        "
+      >
+    
+      <span class="nav-icon">
+
+        <img
+          src="images/planner-icon.png"
+          alt="Planner"
+        >
+      
+      </span>
+    
+        <span class="nav-text">
+          Planner
+        </span>
+    
+      </button>
+    
+      <button
+        class="nav-item"
+    
+        onclick="
+          window.location.href='habits.html'
+        "
+      >
+    
+        <span class="nav-icon">
+          🌿
+        </span>
+    
+        <span class="nav-text">
+          Habits
+        </span>
+    
+      </button>
+    
+      <button
+        class="nav-item
+        active"
+      >
+    
+        <span class="nav-icon">
+          🕒
+        </span>
+    
+        <span class="nav-text">
+          Upcoming
+        </span>
+    
+      </button>
+    
+      <button
+        class="nav-item"
+    
+        onclick="
+          window.location.href='search.html'
+        "
+      >
+    
+        <span class="nav-icon">
+          🔍
+        </span>
+    
+        <span class="nav-text">
+          Search
+        </span>
+    
+      </button>
+      <button
+        class="nav-item"
+    
+        onclick="
+          window.location.href='settings.html'
+        "
+      >
+    
+        <span class="nav-icon">
+          ⚙️
+        </span>
+    
+        <span class="nav-text">
+          Settings
+        </span>
+    
+      </button>
+    
+    </nav>
+
+  </div>
+<!-- MOVE MODAL -->
+
+<div
+  id="moveModal"
+  class="modal-overlay"
+>
+
+  <div class="move-modal">
+
+    <h2>
+      Move Task
+    </h2>
+
+    <input
+      type="date"
+      id="moveDate"
+    >
+
+    <select
+      id="moveSlot"
+    >
+
+      <option value="">
+        Select Slot
+      </option>
+
+      <option>6-7 AM</option>
+      <option>7-8 AM</option>
+      <option>8-9 AM</option>
+      <option>9-10 AM</option>
+      <option>10-11 AM</option>
+
+      <option>11-12 PM</option>
+      <option>12-1 PM</option>
+      <option>1-2 PM</option>
+      <option>2-3 PM</option>
+
+      <option>3-4 PM</option>
+      <option>4-5 PM</option>
+      <option>5-6 PM</option>
+
+      <option>6-7 PM</option>
+      <option>7-8 PM</option>
+      <option>8-9 PM</option>
+
+    </select>
+
+    <div class="modal-actions">
+
+      <button
+        id="cancelMoveBtn"
+        class="modal-cancel"
+      >
+
+        Cancel
+
+      </button>
+
+      <button
+        id="confirmMoveBtn"
+        class="modal-confirm"
+      >
+
+        Move
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- CONFLICT MODAL -->
+
+<div
+  id="conflictModal"
+  class="modal-overlay"
+>
+
+  <div class="move-modal">
+
+    <h2>
+      Slot Occupied
+    </h2>
+
+    <p class="conflict-text">
+      This slot already contains tasks.
+    </p>
+
+    <div class="conflict-actions">
+
+      <button
+        id="cancelConflictBtn"
+        class="modal-cancel"
+      >
+
+        Cancel
+
+      </button>
+
+      <button
+        id="overwriteBtn"
+        class="overwrite-btn"
+      >
+
+        Overwrite
+
+      </button>
+
+      <button
+        id="addBtn"
+        class="modal-confirm"
+      >
+
+        Add
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+<script src="prepData.js"></script>
+  <script src="upcoming.js"></script>
+
+</body>
+
+</html>

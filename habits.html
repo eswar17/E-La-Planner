@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Habit Tracker</title>
+
+  <link rel="stylesheet" href="habits.css">
+  <link
+  rel="manifest"
+  href="manifest.json"
+/>
+
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="app">
+
+    <!-- PORTRAIT HEADER -->
+
+    <header
+      class="header portrait-header"
+    >
+
+      <h1>Habit Tracker</h1>
+
+      <input
+        type="date"
+        id="weekDatePicker"
+      >
+
+    </header>
+
+    <!-- LANDSCAPE HEADER -->
+
+    <header
+      class="header landscape-header"
+    >
+
+      <h1>Habit Tracker</h1>
+
+      <input
+        type="month"
+        id="monthPicker"
+      >
+
+    </header>
+
+    <!-- TABLE -->
+
+    <div class="table-wrapper">
+
+      <table id="habitTable"></table>
+
+    </div>
+
+    <!-- PORTRAIT ACTIONS -->
+
+    <div class="actions portrait-actions">
+
+      <button id="addHabitBtn">
+        Add
+      </button>
+
+      <button id="editHabitBtn">
+        Edit
+      </button>
+
+      <button id="deleteHabitBtn">
+        Delete
+      </button>
+
+    </div>
+
+    <!-- DELETE ACTION -->
+
+    <div
+      id="deleteSection"
+      class="hidden portrait-actions"
+    >
+
+      <button id="confirmDeleteBtn">
+        Delete Selected
+      </button>
+
+    </div>
+
+    <!-- EDIT ACTION -->
+
+    <div
+      id="editSection"
+      class="hidden portrait-actions"
+    >
+
+      <button id="saveEditBtn">
+        Save Changes
+      </button>
+
+    </div>
+
+    <!-- BOTTOM NAV -->
+
+    <nav class="bottom-nav">
+
+      <button
+        class="
+          nav-item
+        "
+        onclick="
+          window.location.href='index.html'
+        "
+      >
+    
+      <span class="nav-icon">
+
+        <img
+          src="images/planner-icon.png"
+          alt="Planner"
+        >
+      
+      </span>
+    
+        <span class="nav-text">
+          Planner
+        </span>
+    
+      </button>
+    
+      <button
+        class="nav-item
+        active"
+      >
+    
+        <span class="nav-icon">
+          🌿
+        </span>
+    
+        <span class="nav-text">
+          Habits
+        </span>
+    
+      </button>
+    
+      <button
+        class="nav-item"
+    
+        onclick="
+          window.location.href='upcoming.html'
+        "
+      >
+    
+        <span class="nav-icon">
+          🕒
+        </span>
+    
+        <span class="nav-text">
+          Upcoming
+        </span>
+    
+      </button>
+    
+      <button
+        class="nav-item"
+    
+        onclick="
+          window.location.href='search.html'
+        "
+      >
+    
+        <span class="nav-icon">
+          🔍
+        </span>
+    
+        <span class="nav-text">
+          Search
+        </span>
+    
+      </button>
+      <button
+        class="nav-item"
+    
+        onclick="
+          window.location.href='settings.html'
+        "
+      >
+    
+        <span class="nav-icon">
+          ⚙️
+        </span>
+    
+        <span class="nav-text">
+          Settings
+        </span>
+    
+      </button>
+    
+    </nav>
+
+  </div>
+
+  <script src="habits.js"></script>
+
+</body>
+
+</html>
