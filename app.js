@@ -116,7 +116,8 @@ const timeSlots = [
 
   "6-7 PM",
   "7-8 PM",
-  "8-9 PM"
+  "8-9 PM",
+  "9-10 PM"
 
 ];
 
