@@ -14,7 +14,8 @@
 html,
 body{
   width:100%;
-  height:100%;
+  min-height:100%;
+  height:100dvh;
 
   overflow:hidden;
 
@@ -34,6 +35,9 @@ body{
 
 .app{
   width:100%;
+
+  min-height:100dvh;
+
   height:100dvh;
 
   max-width:430px;
@@ -47,6 +51,9 @@ body{
   overflow:hidden;
 
   position:relative;
+
+  padding-bottom:
+    env(safe-area-inset-bottom);
 }
 
 /* ===================================================== */
@@ -57,9 +64,12 @@ body{
   flex-shrink:0;
 
   padding:
-    env(safe-area-inset-top)
+    calc(
+      env(safe-area-inset-top)
+      + 18px
+    )
     18px
-    16px
+    14px
     14px;
 }
 
@@ -73,8 +83,6 @@ body{
   align-items:flex-start;
 
   gap:16px;
-
-  /* margin-bottom:22px; */
 }
 
 /* LEFT */
@@ -83,7 +91,8 @@ body{
   flex:1;
 
   min-width:0;
-  padding: 10px;
+
+  padding:10px 0 0;
 }
 
 /* TITLE */
@@ -110,6 +119,8 @@ body{
   color:#1f3526;
 
   letter-spacing:-0.5px;
+
+  line-height:1.1;
 }
 
 /* LEAF */
@@ -131,7 +142,8 @@ body{
 /* CALENDAR */
 
 #calendarBtn{
-  margin: 15px;
+  margin-top:10px;
+
   width:54px;
   height:54px;
 
@@ -177,6 +189,8 @@ body{
   justify-content:space-between;
 
   gap:4px;
+
+  margin-top:10px;
 }
 
 .day-box{
@@ -247,7 +261,10 @@ body{
   padding:
     4px
     16px
-    100px;
+    calc(
+      135px
+      + env(safe-area-inset-bottom)
+    );
 }
 
 /* ===================================================== */
@@ -262,10 +279,6 @@ body{
 
   backdrop-filter:
     blur(16px);
-
-  /* border:
-    1px solid
-    rgba(255,255,255,0.9); */
 
   box-shadow:
     0 10px 28px
@@ -301,7 +314,6 @@ body{
 .content-card:not(.active-card){
 
   display:none;
-
 }
 
 .main-content.panel-active{
@@ -375,6 +387,8 @@ body{
   font-weight:700;
 
   letter-spacing:-0.3px;
+
+  line-height:1.2;
 }
 
 /* ACCENT */
@@ -532,6 +546,14 @@ body{
   box-shadow:
     0 2px 8px
     rgba(0,0,0,0.03);
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.task-card:active{
+  transform:scale(0.985);
 }
 
 .task-input{
@@ -587,7 +609,7 @@ body{
 
   color:#4f6842;
 
-  height:44px;
+  min-height:44px;
 
   border-radius:14px;
 
@@ -598,6 +620,8 @@ body{
   cursor:pointer;
 
   transition:0.2s;
+
+  margin-top:4px;
 }
 
 .add-task-btn:active{
@@ -608,6 +632,10 @@ body{
   width:18px;
 
   height:18px;
+
+  accent-color:#6f945f;
+
+  cursor:pointer;
 
   flex-shrink:0;
 }
@@ -624,10 +652,16 @@ body{
   cursor:pointer;
 
   flex-shrink:0;
+
+  transition:
+    transform 0.15s ease,
+    color 0.15s ease;
 }
 
 .important-active{
   color:#f4b400;
+
+  transform:scale(1.15);
 }
 
 /* TIME */
@@ -647,67 +681,6 @@ body{
   font-weight:600;
 
   color:#61715b;
-}
-
-/* TASK AREA */
-
-.task-area{
-  flex:1;
-
-  display:flex;
-
-  align-items:center;
-
-  gap:10px;
-
-  padding:0 12px;
-}
-
-/* CHECKBOX */
-
-.task-checkbox{
-  width:17px;
-  height:17px;
-
-  flex-shrink:0;
-}
-
-/* IMPORTANT */
-
-.important-btn{
-  border:none;
-
-  background:none;
-
-  font-size:18px;
-
-  color:#d3d3d3;
-
-  cursor:pointer;
-
-  flex-shrink:0;
-}
-
-.important-active{
-  color:#f4b400;
-}
-
-/* INPUT */
-
-.task-input{
-  flex:1;
-
-  border:none;
-
-  outline:none;
-
-  background:none;
-
-  min-width:0;
-
-  font-size:14px;
-
-  color:#2f4033;
 }
 
 /* STATUS */
@@ -795,13 +768,17 @@ body{
 /* ===================================================== */
 
 .bottom-nav{
-  position:absolute;
+  position:fixed;
 
   left:50%;
 
   transform:translateX(-50%);
 
-  bottom:14px;
+  bottom:
+    calc(
+      14px
+      + env(safe-area-inset-bottom)
+    );
 
   width:92%;
 
@@ -831,7 +808,7 @@ body{
     0 10px 30px
     rgba(0,0,0,0.06);
 
-  z-index:100;
+  z-index:999;
 }
 
 /* NAV ITEM */
@@ -878,64 +855,11 @@ body{
   line-height:1;
 }
 
-/* ACTIVE */
-
 .nav-item.active{
   background:
     rgba(95,127,77,0.14);
 
   color:#5f7f4d;
-}
-
-.schedule-card{
-
-  background:
-    /* linear-gradient(
-      rgba(255,255,255,0.78),
-      rgba(255,255,255,0.78)
-    ), */
-
-    url("images/schedule-bg.png");
-
-  background-size:cover;
-
-  background-position:center;
-
-  background-repeat:no-repeat;
-}
-
-.habits-card{
-
-  background:
-    /* linear-gradient(
-      rgba(255,255,255,0.78),
-      rgba(255,255,255,0.78)
-    ), */
-
-    url("images/habits-bg.png");
-
-  background-size:cover;
-
-  background-position:center;
-
-  background-repeat:no-repeat;
-}
-
-.notes-card{
-
-  background:
-    /* linear-gradient(
-      rgba(255,255,255,0.78),
-      rgba(255,255,255,0.78)
-    ), */
-
-    url("images/notes-bg.png");
-
-  background-size:cover;
-
-  background-position:center;
-
-  background-repeat:no-repeat;
 }
 
 .nav-icon img{
@@ -948,68 +872,76 @@ body{
   display:block;
 }
 
-.accordion-body{
-  max-height:0;
+/* ===================================================== */
+/* BACKGROUND CARDS */
+/* ===================================================== */
 
-  overflow:hidden;
+.schedule-card{
+  background:
+    url("images/schedule-bg.png");
 
-  opacity:0;
+  background-size:cover;
 
-  transition:
-    max-height 0.35s ease,
-    opacity 0.25s ease,
-    padding 0.25s ease;
+  background-position:center;
 
-  padding:
-    0
-    22px
-    0;
-
-  position:relative;
-
-  z-index:2;
+  background-repeat:no-repeat;
 }
 
-.accordion-body.open{
-  opacity:1;
+.habits-card{
+  background:
+    url("images/habits-bg.png");
 
-  max-height:1000px;
+  background-size:cover;
 
-  padding:
-    0
-    22px
-    22px;
+  background-position:center;
+
+  background-repeat:no-repeat;
 }
 
-.task-card{
-  transition:
-    transform 0.15s ease,
-    box-shadow 0.15s ease;
+.notes-card{
+  background:
+    url("images/notes-bg.png");
+
+  background-size:cover;
+
+  background-position:center;
+
+  background-repeat:no-repeat;
 }
 
-.task-card:active{
-  transform:scale(0.985);
+/* ===================================================== */
+/* STANDALONE PWA FIX */
+/* ===================================================== */
+
+@media (display-mode: standalone){
+
+  html,
+  body{
+    height:100dvh;
+  }
+
+  .header{
+    padding-top:
+      calc(
+        env(safe-area-inset-top)
+        + 28px
+      );
+  }
+
+  .main-content{
+    padding-bottom:
+      calc(
+        150px
+        + env(safe-area-inset-bottom)
+      );
+  }
+
+  .bottom-nav{
+    bottom:
+      calc(
+        18px
+        + env(safe-area-inset-bottom)
+      );
+  }
+
 }
-
-.task-checkbox{
-  accent-color:#6f945f;
-
-  cursor:pointer;
-}
-
-.important-active{
-  color:#f4b400;
-
-  transform:scale(1.15);
-}
-
-.important-btn{
-  transition:
-    transform 0.15s ease,
-    color 0.15s ease;
-}
-
-.schedule-scroll::-webkit-scrollbar-track{
-  background:transparent;
-}
-
